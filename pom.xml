@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                adrian.roszkowski.monopolygamma/adrian.roszkowski.monopolygamma.HelloApplication
+                                adrian.roszkowski.monopolygamma/adrian.roszkowski.monopolygamma.vidmot.MainApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
