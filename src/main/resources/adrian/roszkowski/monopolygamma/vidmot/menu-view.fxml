@@ -8,9 +8,9 @@
 
 <MenuBar prefHeight="25.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adrian.roszkowski.monopolygamma.vidmot.MenuController">
     <menus>
-        <Menu mnemonicParsing="false" text="File">
+        <Menu mnemonicParsing="false" text="Menu">
             <items>
-                <MenuItem mnemonicParsing="false" onAction="#OnStart" text="Start" />
+                <MenuItem mnemonicParsing="false" onAction="#OnStart" text="Main Menu" />
                 <MenuItem mnemonicParsing="false" onAction="#OnClose" text="Close" />
             </items>
         </Menu>

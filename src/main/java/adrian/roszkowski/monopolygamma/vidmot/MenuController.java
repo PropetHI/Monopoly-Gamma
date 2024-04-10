@@ -1,5 +1,6 @@
 package adrian.roszkowski.monopolygamma.vidmot;
 
+import adrian.roszkowski.monopolygamma.vinnsla.Game;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,14 +10,15 @@ import javafx.scene.control.ButtonType;
 public class MenuController {
 
     @FXML
-    MainController mainController;
+    HomeController gameController;
 
     public void initialize() {
     }
 
     @FXML
     protected void OnStart(ActionEvent event) {
-
+        ViewSwitcher.switchTo(View.HOME);
+        Game.cleanseGame();
     }
 
     @FXML
@@ -34,15 +36,10 @@ public class MenuController {
     @FXML
     protected void OnAbout(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("This is a small Gold Collecting game made with Javafx for the class HBV201G.\n" +
-                "Made by Adrian Roszkowski in 2024/03.");
+        alert.setContentText("This is a small replication of the Original Monopoly made with Javafx for the class HBV201G.\n" +
+                "Made by Adrian Roszkowski in 2024/04.");
         alert.showAndWait()
                 .filter(response -> response == ButtonType.OK)
                 .ifPresent(response -> alert.close());
-    }
-
-
-    public void setGoldController(MainController goldController) {
-        this.mainController = goldController;
     }
 }
