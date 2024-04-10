@@ -4,7 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Game {
-    Tile[] tiles = new Tile[40];
+    Tile[] tiles = new Tile[36];
 
     static ObservableList<Player> playerList = FXCollections.observableArrayList();
 
@@ -54,4 +54,6 @@ public class Game {
     public static void cleanseGame(){
         playerList.clear();
     }
+
+
 }

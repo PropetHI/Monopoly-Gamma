@@ -3,10 +3,7 @@ package adrian.roszkowski.monopolygamma.vidmot;
 import adrian.roszkowski.monopolygamma.vinnsla.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.DialogPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -14,6 +11,8 @@ import java.util.Optional;
 public class AskrifandiDialog extends Dialog<Player> {
     @FXML
     private TextField userInput_ID;
+    @FXML
+    private ColorPicker colorInput_ID;
 
 
     /**
@@ -25,7 +24,7 @@ public class AskrifandiDialog extends Dialog<Player> {
 
         setResultConverter(dialogButton -> {
             if (dialogButton.getButtonData() == ButtonBar.ButtonData.OK_DONE) {
-                return new Player(userInput_ID.getText());
+                return new Player(userInput_ID.getText(), colorInput_ID.getValue());
             } else {
                 return null;
             }
