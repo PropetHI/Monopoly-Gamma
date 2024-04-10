@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane fx:id="BoardAP_ID" prefHeight="600.0" prefWidth="600.0" stylesheets="@css/Board-Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adrian.roszkowski.monopolygamma.vidmot.BoardController">
+   <children>
+      <Rectangle fx:id="Tile_0" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" layoutY="500.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+      <Rectangle fx:id="Tile_1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="450.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="Tile_2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="Tile_3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="350.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="Tile_4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="300.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="Tile_5" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="250.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="Tile_6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="Tile_7" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="150.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="Tile_8" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="Tile_9" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+      <Rectangle fx:id="Tile_10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutX="100.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="Tile_11" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutX="150.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="Tile_12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutX="200.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="Tile_13" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutX="250.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="Tile_14" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutX="300.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="Tile_15" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutX="350.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="Tile_16" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutX="400.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="Tile_17" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutX="450.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="Tile_18" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" layoutX="500.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+      <Rectangle fx:id="Tile_19" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="530.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="Tile_20" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="530.0" layoutY="150.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="Tile_21" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="530.0" layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="Tile_22" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="530.0" layoutY="250.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="Tile_23" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="530.0" layoutY="300.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="Tile_24" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="530.0" layoutY="350.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="Tile_25" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="530.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="Tile_26" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="530.0" layoutY="450.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+      <Rectangle fx:id="Tile_27" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" layoutX="500.0" layoutY="500.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+      <Rectangle fx:id="Tile_28" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutX="450.0" layoutY="530.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="Tile_29" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutX="400.0" layoutY="530.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="Tile_30" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutX="350.0" layoutY="530.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="Tile_31" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutX="300.0" layoutY="530.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="Tile_32" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutX="250.0" layoutY="530.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="Tile_33" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutX="200.0" layoutY="530.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="Tile_34" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutX="150.0" layoutY="530.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="Tile_35" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutX="100.0" layoutY="530.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+      <Button fx:id="DiceButton_ID" layoutX="250.0" layoutY="425.0" mnemonicParsing="false" onAction="#OnRollDice" prefHeight="50.0" prefWidth="100.0" text="Button" />
+      <ImageView fx:id="DiceShieldLogo_ID" fitHeight="150.0" fitWidth="150.0" layoutX="225.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true" styleClass="DiceShield" />
+      <ImageView fx:id="DiceImageContainerRight_ID" fitHeight="70.0" fitWidth="70.0" layoutX="375.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="DiceImageContainerLeft_ID" fitHeight="70.0" fitWidth="70.0" layoutX="155.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

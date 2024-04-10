@@ -4,8 +4,11 @@ import adrian.roszkowski.monopolygamma.vinnsla.Game;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
+import java.util.Random;
+
 public class GameMonoController {
     Game game;
+
 
     @FXML
     public void initialize(){
@@ -13,10 +16,6 @@ public class GameMonoController {
         game.setPlayers(Game.getPlayerList());
     }
 
-    @FXML
-    public void OnRollDice(ActionEvent e){
-
-    }
 
 
 }

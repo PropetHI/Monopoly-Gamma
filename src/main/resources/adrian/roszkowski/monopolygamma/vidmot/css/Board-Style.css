@@ -1,0 +1,34 @@
+.Dice1{
+    -fx-image: url("images/dice/dice-six-faces-one.png");
+    -fx-background-size: cover;
+}
+
+.Dice2{
+    -fx-image: url("images/dice/dice-six-faces-two.png");
+    -fx-background-size: cover;
+}
+
+.Dice3{
+    -fx-image: url("images/dice/dice-six-faces-three.png");
+    -fx-background-size: cover;
+}
+
+.Dice4{
+    -fx-image: url("images/dice/dice-six-faces-four.png");
+    -fx-background-size: cover;
+}
+
+.Dice5{
+    -fx-image: url("images/dice/dice-six-faces-five.png");
+    -fx-background-size: cover;
+}
+
+.Dice6{
+    -fx-image: url("images/dice/dice-six-faces-six.png");
+    -fx-background-size: cover;
+}
+
+.DiceShield{
+    -fx-image: url("images/dice/dice-shield.png");
+    -fx-background-size: cover;
+}
