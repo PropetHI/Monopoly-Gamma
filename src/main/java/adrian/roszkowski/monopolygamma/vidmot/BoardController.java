@@ -2,11 +2,14 @@ package adrian.roszkowski.monopolygamma.vidmot;
 
 import adrian.roszkowski.monopolygamma.vinnsla.Game;
 import adrian.roszkowski.monopolygamma.vinnsla.Player;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
@@ -21,6 +24,8 @@ public class BoardController {
     ImageView DiceImageContainerLeft_ID;
     @FXML
     ImageView DiceImageContainerRight_ID;
+    @FXML
+    Button DiceButton_ID;
 
     Random random = new Random();
 
@@ -29,7 +34,8 @@ public class BoardController {
     ObservableList<Node> tiles = FXCollections.observableArrayList();
     ObservableList<Rectangle> playerModels = FXCollections.observableArrayList();
 
-    boolean isRolled = false;
+    BooleanProperty isRolled = new SimpleBooleanProperty(false);
+    int timesPaired = 0;
 
     public void initialize() {
         for (Node r : BoardAP_ID.getChildren()) {
@@ -37,6 +43,7 @@ public class BoardController {
                 continue;
             tiles.add(r);
         }
+        DiceButton_ID.disableProperty().bind(isRolled);
     }
 
     public void setGame(Game game) {
@@ -101,6 +108,8 @@ public class BoardController {
                 rectangle.setLayoutY(tileLocation.getLayoutY() + tileLocation.getBoundsInParent().getHeight() / 2 + rectangle.getHeight() - 10);
                 break;
             default:
+                rectangle.setLayoutX(tileLocation.getLayoutX() + tileLocation.getBoundsInParent().getWidth() / 2 - rectangle.getWidth() - 10);
+                rectangle.setLayoutY(tileLocation.getLayoutY() + tileLocation.getBoundsInParent().getHeight() / 2 - rectangle.getHeight() - 10);
                 break;
         }
     }
@@ -127,16 +136,15 @@ public class BoardController {
 
         int number2 = random.nextInt(6) + 1;
         DiceImageContainerLeft_ID.getStyleClass().add("Dice" + number2);
-        int timesPaired = 0;
 
         System.out.println(number + " " + number2);
 
         if (number != number2) {
-            isRolled = true;
+            isRolled.set(true);
         }
         else {
             timesPaired++;
-            isRolled = false;
+            isRolled.set(false);
         }
 
         System.out.println(game.getActivePlayer().getPosition());
@@ -152,7 +160,11 @@ public class BoardController {
         System.out.println(game.getActivePlayer().getPosition() + " after ");
     }
 
-    public boolean GetIsRolled() {
+    public BooleanProperty GetIsRolled() {
         return isRolled;
+    }
+
+    public void nextTurn(){
+        isRolled.set(false);
     }
 }

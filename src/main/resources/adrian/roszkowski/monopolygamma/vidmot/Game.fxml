@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -27,6 +28,7 @@
             <AnchorPane prefHeight="600.0" prefWidth="300.0">
                <children>
                   <AnchorPane prefHeight="450.0" prefWidth="300.0" styleClass="window-border" />
+                  <Button fx:id="nextTurnButton_ID" layoutX="97.0" layoutY="472.0" mnemonicParsing="false" onAction="#OnNextTurn" prefHeight="51.0" prefWidth="106.0" text="Next turn" />
                </children>
             </AnchorPane>
          </children>
