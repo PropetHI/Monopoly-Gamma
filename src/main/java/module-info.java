@@ -8,4 +8,5 @@ module adrian.roszkowski.monopolygamma {
 
     exports adrian.roszkowski.monopolygamma.vidmot;
     opens adrian.roszkowski.monopolygamma.vidmot to javafx.fxml;
+
 }

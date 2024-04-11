@@ -1,8 +1,9 @@
 package adrian.roszkowski.monopolygamma.vinnsla;
 
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.paint.Color;
 
-public class Player {
+public class Player extends SimpleObjectProperty<Player> {
 
     private String name;
     private int money;

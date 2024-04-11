@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.Rectangle?>
+
+<?import javafx.scene.layout.Pane?>
+
+<fx:root type="Rectangle" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" />

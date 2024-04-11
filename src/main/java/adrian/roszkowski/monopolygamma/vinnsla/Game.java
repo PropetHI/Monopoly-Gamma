@@ -1,7 +1,5 @@
 package adrian.roszkowski.monopolygamma.vinnsla;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -10,7 +8,7 @@ public class Game {
 
     static ObservableList<Player> playerList = FXCollections.observableArrayList();
 
-    IntegerProperty activePlayerIndex = new SimpleIntegerProperty(0);
+    javafx.beans.property.IntegerProperty activePlayerIndex = new javafx.beans.property.SimpleIntegerProperty(0);
 
     public void nextTurn() {
         if (activePlayerIndex.get() < playerList.size() - 1) {
@@ -49,7 +47,7 @@ public class Game {
         return activePlayerIndex.get();
     }
 
-    public IntegerProperty getActivePlayerIndexProperty(){
+    public javafx.beans.property.IntegerProperty getActivePlayerIndexProperty(){
         return activePlayerIndex;
     }
 

@@ -4,6 +4,7 @@ import adrian.roszkowski.monopolygamma.vinnsla.Game;
 import adrian.roszkowski.monopolygamma.vinnsla.Player;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 
+import java.io.IOException;
 import java.util.Random;
 
 public class BoardController {
@@ -31,7 +33,7 @@ public class BoardController {
 
     Game game;
 
-    ObservableList<Node> tiles = FXCollections.observableArrayList();
+    ObservableList<TileUI> tiles = FXCollections.observableArrayList();
     ObservableList<Rectangle> playerModels = FXCollections.observableArrayList();
 
     BooleanProperty isRolled = new SimpleBooleanProperty(false);
@@ -39,9 +41,60 @@ public class BoardController {
 
     public void initialize() {
         for (Node r : BoardAP_ID.getChildren()) {
-            if (!(r instanceof Rectangle))
+            if (!(r instanceof TileUI))
                 continue;
-            tiles.add(r);
+            switch (r.getId()) {
+                case "Tile0":
+                    ((TileUI) r).initialize(
+                            "Placeholder",
+                            new int[] {150, 0, 0, 0, 0},
+                            new int[] {50, 0, 0, 0, 0},
+                            false
+                    );
+                    break;
+                case "Tile9":
+                    ((TileUI) r).initialize(
+                            "Placeholder",
+                            new int[] {150, 0, 0, 0, 0},
+                            new int[] {50, 0, 0, 0, 0},
+                            false
+                    );
+                    break;
+                case "Tile18":
+                    ((TileUI) r).initialize(
+                            "Placeholder",
+                            new int[] {150, 0, 0, 0, 0},
+                            new int[] {50, 0, 0, 0, 0},
+                            false
+                    );
+                    break;
+                case "Tile27":
+                    ((TileUI) r).initialize(
+                            "Placeholder",
+                            new int[] {150, 0, 0, 0, 0},
+                            new int[] {50, 0, 0, 0, 0},
+                            false
+                    );
+                    break;
+                case "Tile36":
+                    ((TileUI) r).initialize(
+                            "Placeholder",
+                            new int[] {150, 0, 0, 0, 0},
+                            new int[] {50, 0, 0, 0, 0},
+                            false
+                    );
+                    break;
+                default:
+                    ((TileUI) r).initialize(
+                            "Placeholder",
+                            new int[] {150, 0, 0, 0, 0},
+                            new int[] {50, 0, 0, 0, 0},
+                            true
+                    );
+                    break;
+            }
+
+            tiles.add((TileUI) r);
         }
         DiceButton_ID.disableProperty().bind(isRolled);
     }
@@ -157,6 +210,13 @@ public class BoardController {
             game.getActivePlayer().setPosition(newPosition);
         }
         movePlayer(game.getActivePlayer(), game.getActivePlayerIndex());
+
+        try {
+            TilePopupWindow popupWindow = new TilePopupWindow();
+            popupWindow.display(tiles.get(game.getActivePlayer().getPosition()), game.getActivePlayer());
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
         System.out.println(game.getActivePlayer().getPosition() + " after ");
     }
 

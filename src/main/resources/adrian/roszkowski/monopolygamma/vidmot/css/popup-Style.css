@@ -1,0 +1,4 @@
+.houseImage{
+    -fx-background-size: cover;
+    -fx-image: url("images/house.png");
+}
