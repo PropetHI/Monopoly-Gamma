@@ -4,6 +4,7 @@ import adrian.roszkowski.monopolygamma.vinnsla.Game;
 import adrian.roszkowski.monopolygamma.vinnsla.Player;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 
 public class HomeController {
@@ -12,11 +13,20 @@ public class HomeController {
 
     @FXML
     private ListView<Player> playerList_ID;
+    @FXML
+    private Button playButton_ID;
 
+    /**
+     * Initializes the game. Adds rules to prevent a 0 player game. Permits 1 player for testing purposes.
+     */
     @FXML
     void initialize(){
         game = new Game();
-        game.getPlayerList().addListener((ListChangeListener<Player>) change -> playerList_ID.getItems().setAll(game.getPlayerList()));
+        game.getPlayerList().addListener((ListChangeListener<Player>) change -> {
+            playerList_ID.getItems().setAll(game.getPlayerList());
+            if (game.getPlayerList().size() > 0) playButton_ID.setDisable(false);
+            else playButton_ID.setDisable(true);
+        });
     }
     public HomeController(){
 

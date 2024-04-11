@@ -39,6 +39,11 @@ public class BoardController {
     BooleanProperty isRolled = new SimpleBooleanProperty(false);
     int timesPaired = 0;
 
+    /**
+     * Initializes the game with the board. Adds information to the tiles.
+     *
+     * TODO: Switch to JSON Format
+     */
     public void initialize() {
         for (Node r : BoardAP_ID.getChildren()) {
             if (!(r instanceof TileUI))
@@ -107,6 +112,11 @@ public class BoardController {
         return value >= min && value <= max;
     }
 
+    /**
+     * Calculates the position of the player on the board after moving
+     * @param player The player
+     * @param position His "position" in the index
+     */
     public void movePlayer(Player player, int position) {
         Rectangle rectangle = playerModels.get(position);
         Node tileLocation = tiles.get(player.getPosition());
@@ -142,6 +152,12 @@ public class BoardController {
         }
     }
 
+    /**
+     * Handles movement to the corner tiles specificially
+     * @param position the index of the player
+     * @param rectangle the player model
+     * @param tileLocation the tile to move to
+     */
     private static void movePlayerCorner(int position, Rectangle rectangle, Node tileLocation) {
         switch (position){
             case 0:
@@ -167,6 +183,10 @@ public class BoardController {
         }
     }
 
+    /**
+     * Creates player models
+     * @param players The players
+     */
     public void createPlayers(ObservableList<Player> players) {
         players.forEach(player -> {
             Rectangle rectangle = new Rectangle(25, 25, player.getColor());
@@ -179,6 +199,10 @@ public class BoardController {
         });
     }
 
+    /**
+     * Handles rolling the dice and calling to move the player
+     * @param e unused
+     */
     @FXML
     public void OnRollDice(ActionEvent e){
         DiceImageContainerLeft_ID.getStyleClass().clear();
@@ -190,8 +214,6 @@ public class BoardController {
         int number2 = random.nextInt(6) + 1;
         DiceImageContainerLeft_ID.getStyleClass().add("Dice" + number2);
 
-        System.out.println(number + " " + number2);
-
         if (number != number2) {
             isRolled.set(true);
         }
@@ -200,7 +222,6 @@ public class BoardController {
             isRolled.set(false);
         }
 
-        System.out.println(game.getActivePlayer().getPosition());
         int newPosition = game.getActivePlayer().getPosition() + number + number2;
         if (newPosition >= tiles.size()){
             int value = newPosition - tiles.size();

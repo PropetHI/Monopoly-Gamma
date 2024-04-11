@@ -35,6 +35,9 @@ public class TileUI extends Rectangle {
 //        load();
     }
 
+    /**
+     * REDUNDANT: Handles loading the FXML File
+     */
     void load() {
         FXMLLoader fxmlLoader = new FXMLLoader(GameMonoController.class.getResource("TileUI-view.fxml"));
         fxmlLoader.setController(this);

@@ -19,6 +19,11 @@ public class GameMonoController {
     private Button nextTurnButton_ID;
 
 
+    /**
+     * Calls the necessary methods to initialize the game.
+     *
+     * Binds the next turn button to the game, making sure that the player has completed all their rolls.
+     */
     @FXML
     public void initialize(){
         game = new Game();
