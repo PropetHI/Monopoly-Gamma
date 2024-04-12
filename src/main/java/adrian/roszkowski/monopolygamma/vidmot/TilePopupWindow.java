@@ -62,6 +62,18 @@ public class TilePopupWindow {
     SimpleBooleanProperty isEqual(Object o1, Object o2) {
         return new SimpleBooleanProperty(Objects.equals(o1, o2));
     }
+
+    /**
+     * Displays a popup window.
+     *
+     * @param tile Tile information to display
+     * @param _player The player who landed on the tile.
+     * @return Modified tile information.
+     * @throws IOException If the fxml loading fails.
+     *
+     *      Inspired / based on: http://www.learningaboutelectronics.com/Articles/How-to-communicate-between-windows-in-JavaFX.php
+     *      Written by : UNKNOWN
+     */
     public TileUI display(TileUI tile, Player _player) throws IOException {
         Stage popupwindow=new Stage();
         popupwindow.initModality(Modality.APPLICATION_MODAL);
