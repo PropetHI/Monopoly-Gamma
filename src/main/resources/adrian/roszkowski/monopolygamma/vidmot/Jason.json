@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Classic",
+    "pricePerLevel": [150, 0, 0, 0, 0],
+    "rentPerLevel": [50, 0, 0, 0, 0],
+    "purchasable": false
+  },
+  {
+    "name": "Another Tile",
+    "pricePerLevel": [200, 10, 20, 30, 40],
+    "rentPerLevel": [60, 15, 25, 35, 45],
+    "purchasable": true
+  },
+  {
+    "name": "Yet Another Tile",
+    "pricePerLevel": [100, 5, 10, 15, 20],
+    "rentPerLevel": [70, 12, 17, 22, 27],
+    "purchasable": false
+  },
+
+    {
+      "name": "Sunset View",
+      "pricePerLevel": [150, 0, 0, 0, 0],
+      "rentPerLevel": [50, 0, 0, 0, 0],
+      "purchasable": false
+    },
+    {
+      "name": "Forest Retreat",
+      "pricePerLevel": [200, 10, 20, 30, 40],
+      "rentPerLevel": [60, 15, 25, 35, 45],
+      "purchasable": true
+    },
+    {
+      "name": "Mountain Peak",
+      "pricePerLevel": [100, 5, 10, 15, 20],
+      "rentPerLevel": [70, 12, 17, 22, 27],
+      "purchasable": false
+    },
+    {
+      "name": "Ocean Breeze",
+      "pricePerLevel": [120, 8, 12, 18, 24],
+      "rentPerLevel": [45, 7, 11, 17, 22],
+      "purchasable": true
+    },
+    {
+      "name": "City Lights",
+      "pricePerLevel": [180, 15, 25, 35, 45],
+      "rentPerLevel": [55, 18, 28, 38, 48],
+      "purchasable": false
+    }
+
+]

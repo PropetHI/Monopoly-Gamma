@@ -1,7 +1,9 @@
 package adrian.roszkowski.monopolygamma.vidmot;
 
+import adrian.roszkowski.monopolygamma.vinnsla.Data;
 import adrian.roszkowski.monopolygamma.vinnsla.Game;
 import adrian.roszkowski.monopolygamma.vinnsla.Player;
+import com.fasterxml.jackson.core.type.TypeReference;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -10,12 +12,21 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class BoardController {
@@ -43,47 +54,49 @@ public class BoardController {
      * Initializes the game with the board. Adds information to the tiles.
      *
      * TODO: Switch to JSON Format
+     *
+     * JSON ATTEMPTED ONCE - INACCESSIBLE OBJECT EXCEPTION - NO FIX FOUND IN TIME
      */
-    public void initialize() {
+    public void initialize() throws IOException {
         for (Node r : BoardAP_ID.getChildren()) {
             if (!(r instanceof TileUI))
                 continue;
             switch (r.getId()) {
-                case "Tile0":
+                case "Tile_0":
                     ((TileUI) r).initialize(
-                            "Placeholder",
+                            "Gravure Park",
                             new int[] {150, 0, 0, 0, 0},
                             new int[] {50, 0, 0, 0, 0},
                             false
                     );
                     break;
-                case "Tile9":
+                case "Tile_9":
                     ((TileUI) r).initialize(
-                            "Placeholder",
+                            "Selia Beach",
                             new int[] {150, 0, 0, 0, 0},
                             new int[] {50, 0, 0, 0, 0},
                             false
                     );
                     break;
-                case "Tile18":
+                case "Tile_18":
                     ((TileUI) r).initialize(
-                            "Placeholder",
+                            "Amsterdam Hollows",
                             new int[] {150, 0, 0, 0, 0},
                             new int[] {50, 0, 0, 0, 0},
                             false
                     );
                     break;
-                case "Tile27":
+                case "Tile_27":
                     ((TileUI) r).initialize(
-                            "Placeholder",
+                            "The Faire Crest",
                             new int[] {150, 0, 0, 0, 0},
                             new int[] {50, 0, 0, 0, 0},
                             false
                     );
                     break;
-                case "Tile36":
+                case "Tile_36":
                     ((TileUI) r).initialize(
-                            "Placeholder",
+                            "Tolyphony Palace",
                             new int[] {150, 0, 0, 0, 0},
                             new int[] {50, 0, 0, 0, 0},
                             false
@@ -91,7 +104,7 @@ public class BoardController {
                     break;
                 default:
                     ((TileUI) r).initialize(
-                            "Placeholder",
+                            "Block " + r.getId(),
                             new int[] {150, 0, 0, 0, 0},
                             new int[] {50, 0, 0, 0, 0},
                             true
@@ -119,8 +132,8 @@ public class BoardController {
      */
     public void movePlayer(Player player, int position) {
         Rectangle rectangle = playerModels.get(position);
-        Node tileLocation = tiles.get(player.getPosition());
-        switch (player.getPosition()) {
+        Node tileLocation = tiles.get(player.getPosition().get());
+        switch (player.getPosition().get()) {
             case 0:
                 movePlayerCorner(position, rectangle, tileLocation);
                 break;
@@ -134,19 +147,19 @@ public class BoardController {
                 movePlayerCorner(position, rectangle, tileLocation);
                 break;
         }
-        if (inBetween(player.getPosition(), 1, 8)){
+        if (inBetween(player.getPosition().get(), 1, 8)){
             rectangle.setLayoutX(tileLocation.getLayoutX() + tileLocation.getBoundsInParent().getWidth() / 2 - rectangle.getWidth() / 2 + 25 * position);
             rectangle.setLayoutY(tileLocation.getLayoutY() + tileLocation.getBoundsInParent().getHeight() / 2 - rectangle.getHeight() / 2);
         }
-        else if (inBetween(player.getPosition(), 10, 17)){
+        else if (inBetween(player.getPosition().get(), 10, 17)){
             rectangle.setLayoutX(tileLocation.getLayoutX() + tileLocation.getBoundsInParent().getWidth() / 2 - rectangle.getWidth() / 2);
             rectangle.setLayoutY(tileLocation.getLayoutY() + tileLocation.getBoundsInParent().getHeight() / 2 - rectangle.getHeight() / 2 + 25 * position);
         }
-        else if (inBetween(player.getPosition(), 19, 26)){
+        else if (inBetween(player.getPosition().get(), 19, 26)){
             rectangle.setLayoutX(tileLocation.getLayoutX() + tileLocation.getBoundsInParent().getWidth() / 2 - rectangle.getWidth() / 2 - 25 * position);
             rectangle.setLayoutY(tileLocation.getLayoutY() + tileLocation.getBoundsInParent().getHeight() / 2 - rectangle.getHeight() / 2);
         }
-        else if (inBetween(player.getPosition(), 28, 36)){
+        else if (inBetween(player.getPosition().get(), 28, 36)){
             rectangle.setLayoutX(tileLocation.getLayoutX() + tileLocation.getBoundsInParent().getWidth() / 2 - rectangle.getWidth() / 2);
             rectangle.setLayoutY(tileLocation.getLayoutY() + tileLocation.getBoundsInParent().getHeight() / 2 - rectangle.getHeight() / 2 - 25 * position);
         }
@@ -222,22 +235,43 @@ public class BoardController {
             isRolled.set(false);
         }
 
-        int newPosition = game.getActivePlayer().getPosition() + number + number2;
+        int newPosition = game.getActivePlayer().getPosition().get() + number + number2;
         if (newPosition >= tiles.size()){
             int value = newPosition - tiles.size();
             game.getActivePlayer().setPosition(value);
+            game.getActivePlayer().setMoney(game.getActivePlayer().getMoney().get() + 300);
         }
         else {
             game.getActivePlayer().setPosition(newPosition);
         }
         movePlayer(game.getActivePlayer(), game.getActivePlayerIndex());
 
-        try {
-            TilePopupWindow popupWindow = new TilePopupWindow();
-            popupWindow.display(tiles.get(game.getActivePlayer().getPosition()), game.getActivePlayer());
-        } catch (IOException e1) {
-            e1.printStackTrace();
+        if (tiles.get(game.getActivePlayer().getPosition().get()).getOwner().getName().equals("NONEXISTENT")||
+                tiles.get(game.getActivePlayer().getPosition().get()).getOwner() == game.getActivePlayer())
+        {
+            try {
+                System.out.println(game.getActivePlayer().getName() + " ; " + tiles.get(game.getActivePlayer().getPosition().get()).getOwner().getName());
+                TilePopupWindow popupWindow = new TilePopupWindow();
+                TileUI currentTile = tiles.get(game.getActivePlayer().getPosition().get());
+                TileUI newTileInfo = popupWindow.display(tiles.get(game.getActivePlayer().getPosition().get()), game.getActivePlayer());
+                tiles.set(game.getActivePlayer().getPosition().get() , newTileInfo);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         }
+        else{
+            game.getActivePlayer().setMoney(game.getActivePlayer().getMoney().get() - tiles.get(game.getActivePlayer().getPosition().get()).getRentPerLevel()[0]);
+            if (game.getActivePlayer().getMoney().get() < 0){
+                game.removePlayer(game.getActivePlayer());
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("The player " + game.getActivePlayer().getName() + " has gone bankrupt.");
+                alert.showAndWait()
+                        .filter(response -> response == ButtonType.OK)
+                        .ifPresent(response -> alert.close());
+            }
+        }
+
         System.out.println(game.getActivePlayer().getPosition() + " after ");
     }
 

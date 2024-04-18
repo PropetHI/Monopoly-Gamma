@@ -2,8 +2,10 @@ package adrian.roszkowski.monopolygamma.vidmot;
 
 import adrian.roszkowski.monopolygamma.vinnsla.Game;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import adrian.roszkowski.monopolygamma.vinnsla.Player;
 
@@ -16,9 +18,9 @@ public class TileUI extends Rectangle {
     int[] pricePerLevel;
     int[] rentPerLevel;
 
-    Color originalColor;
+    Color originalColor = Color.DODGERBLUE;
 
-    Player owner;
+    Player owner = new Player("NONEXISTENT");
 
     public TileUI() {
         super();
@@ -68,9 +70,29 @@ public class TileUI extends Rectangle {
 
     public void setOwner(Player _owner) {
         this.owner.set(_owner);
-        originalColor = (Color) this.getFill();
-        this.setFill(owner.getColor());
+        this.setFill(_owner.getColor());
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setOriginalColor(Color originalColor) {
+        this.originalColor = originalColor;
+    }
+
+    public void setPricePerLevel(int[] pricePerLevel) {
+        this.pricePerLevel = pricePerLevel;
+    }
+
+    public void setPurchasable(boolean purchasable) {
+        this.purchasable = purchasable;
+    }
+
+    public void setRentPerLevel(int[] rentPerLevel) {
+        this.rentPerLevel = rentPerLevel;
+    }
+
 
     public Player getOwner() {
         return owner;
